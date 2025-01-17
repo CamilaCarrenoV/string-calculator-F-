@@ -3,7 +3,7 @@ let add numbers =
     | "" -> 0
     | _ -> 
      let arrayNumbers = 
-         numbers.Split(',')
+         numbers.Split([| ','; '\n' |])
          |> Array.map (fun x -> 
              match System.Int32.TryParse(x) with
              | (true, value) -> value 
