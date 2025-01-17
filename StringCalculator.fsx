@@ -11,7 +11,13 @@ let add numbers =
                 match System.Int32.TryParse(x) with
                 | (true, value) -> value 
                 | (false, _) -> 0)
+
+        let negatives = arrayNumbers |> Array.filter (fun x -> x < 0)
+        if negatives.Length > 0 then
+            failwithf "Negatives not allowed: %A" negatives
+
         arrayNumbers |> Array.sum
+
     | _ -> 
         let arrayNumbers = 
             numbers.Split([| ','; '\n' |])
@@ -19,4 +25,9 @@ let add numbers =
                 match System.Int32.TryParse(x) with
                 | (true, value) -> value 
                 | (false, _) -> 0)
+
+        let negatives = arrayNumbers |> Array.filter (fun x -> x < 0)
+        if negatives.Length > 0 then
+            failwithf "Negatives not allowed: %A" negatives
+        
         arrayNumbers |> Array.sum
