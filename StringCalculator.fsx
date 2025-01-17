@@ -16,7 +16,9 @@ let add numbers =
         if negatives.Length > 0 then
             failwithf "Negatives not allowed: %A" negatives
 
-        arrayNumbers |> Array.sum
+        arrayNumbers
+        |> Array.filter (fun x -> x <= 1000)
+        |> Array.sum
 
     | _ -> 
         let arrayNumbers = 
